@@ -1,21 +1,37 @@
-import React from 'react'
-import { createBoard } from '../../lib'
+import React, { useEffect } from 'react'
+// import { createBoard } from '../../lib'
+import { createBoard, toggleCell } from '../action'
+import { connect } from 'react-redux'
 
-const size = 10
-const board = createBoard(size)
+function Board (props) {
+  const { board, dispatch } = props
+  const size = 10
 
-function Board () {
+  useEffect(() => {
+    dispatch(createBoard(size))
+  }, [])
+
+  function handleclick (cell, e) {
+    e.preventDefault()
+    dispatch(toggleCell(cell))
+    console.log(board)
+  }
   return (
-    <div className="container">
-      {board.map((row) => {
-        row.forEach((cell) => {
-          <div>
-            <h1>{cell.alive}</h1>
-          </div>
-        })
-      })}
+    <div className='board'>
+      {board.map((cell, i) => (
+        <div key={i}>
+          <div className={`cell alive-${cell.alive}`} onClick={e => handleclick(cell, e)}>{cell.row},{cell.col}</div>
+        </div>
+      ))}
     </div>
   )
 }
 
-export default Board
+function mapStateToProps (state) {
+  console.log(state)
+  return {
+    board: state.board
+  }
+}
+
+export default connect(mapStateToProps)(Board)

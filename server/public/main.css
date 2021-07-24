@@ -1,0 +1,24 @@
+.cell {
+  width: 20px;
+  height: 20px;
+  border: solid yellow 1px
+}
+
+.alive-true {
+  background-color: green;
+}
+
+.alive-false {
+  background-color: black;
+}
+
+.board {
+  margin-top: 100px;
+  margin: auto;
+  width: 220px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: dotted 1px red;
+}
