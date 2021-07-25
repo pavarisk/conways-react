@@ -43,11 +43,11 @@ function Board (props) {
       <div className='board'>
         {board.map((cell, i) => (
           <div key={i}>
-            <div className={`cell alive-${cell.alive}`} onClick={e => handleclick(cell, e)}></div>
+            <div className={`cell alive-${cell.alive}`} onMouseOver={e => handleclick(cell, e)}></div>
           </div>
         ))}
       </div>
-      <div>
+      <div className='buttons'>
         <button onClick={play}>play</button>
         <button onClick={handleStop}>stop</button>
         <button onClick={nextBoardState}>next</button>
