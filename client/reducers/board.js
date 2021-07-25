@@ -1,4 +1,4 @@
-import { CREATE_BOARD, TOGGLE_CELL } from '../action/index'
+import { CREATE_BOARD, TOGGLE_CELL, NEXT_BOARD } from '../action/index'
 
 const initialState = []
 
@@ -17,6 +17,8 @@ const reducer = (state = initialState, action) => {
       found.alive = !found.alive
       var newState = [...state]
       return newState
+    case NEXT_BOARD:
+      return action.newBoard
     default:
       return state
   }
