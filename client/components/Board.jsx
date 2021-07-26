@@ -61,7 +61,7 @@ function Board (props) {
         ))}
       </div>
       <div className='buttons'>
-        <button onClick={e => handleStart(e)}>play</button>
+        <button onClick={handleStart}>play</button>
         <button onClick={handleStop}>stop</button>
         <button onClick={nextBoardState}>next</button>
         <button onClick={resetBoard}>reset</button>
