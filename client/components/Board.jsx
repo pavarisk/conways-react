@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 function Board (props) {
   const { board, dispatch } = props
+  const [playing, setPlaying] = useState(false)
   const size = 20
 
   useEffect(() => {
@@ -23,10 +24,22 @@ function Board (props) {
     } else return board
   }
 
-  const play = play => setInterval(() => { nextBoardState() }, 500)
+  const intervalId = function () {
+    var id = setInterval(function () {
+      nextBoardState()
+    }, 500)
+    return id
+  }
+
+  function handleStart (e) {
+    e.preventDefault()
+    setPlaying(true)
+    intervalId()
+  }
 
   function handleStop () {
-    clearInterval(play)
+    clearInterval(intervalId)
+    setPlaying(false)
     console.log('stop fired')
   }
 
@@ -43,12 +56,12 @@ function Board (props) {
       <div className='board'>
         {board.map((cell, i) => (
           <div key={i}>
-            <div className={`cell alive-${cell.alive}`} onClick={e => handleclick(cell, e)}></div>
+            <div className={`cell alive-${cell.alive}`} onMouseOver={e => handleclick(cell, e)}></div>
           </div>
         ))}
       </div>
-      <div>
-        <button onClick={play}>play</button>
+      <div className='buttons'>
+        <button onClick={e => handleStart(e)}>play</button>
         <button onClick={handleStop}>stop</button>
         <button onClick={nextBoardState}>next</button>
         <button onClick={resetBoard}>reset</button>

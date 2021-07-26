@@ -1,16 +1,16 @@
-const testBoard = [
-  { col: 0, row: 0, alive: true },
-  { col: 0, row: 1, alive: true },
-  { col: 0, row: 2, alive: true },
-  { col: 1, row: 0, alive: false },
-  { col: 1, row: 1, alive: false },
-  { col: 1, row: 2, alive: false },
-  { col: 2, row: 0, alive: false },
-  { col: 2, row: 1, alive: false },
-  { col: 2, row: 2, alive: false }
-]
+// const testBoard = [
+//   { col: 0, row: 0, alive: true },
+//   { col: 0, row: 1, alive: true },
+//   { col: 0, row: 2, alive: true },
+//   { col: 1, row: 0, alive: false },
+//   { col: 1, row: 1, alive: false },
+//   { col: 1, row: 2, alive: false },
+//   { col: 2, row: 0, alive: false },
+//   { col: 2, row: 1, alive: false },
+//   { col: 2, row: 2, alive: false }
+// ]
 
-const testCell = size => (testBoard[size])
+// const testCell = size => (testBoard[size])
 
 function nextBoard (board) {
   const oldBoard = board

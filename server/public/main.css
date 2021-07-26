@@ -14,11 +14,22 @@
 
 .board {
   margin-top: 100px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 440px;
   height: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   border: dotted 1px red;
+}
+
+html, body {
+  background-color: darkgray;
+}
+
+.buttons {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
 }
